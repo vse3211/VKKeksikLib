@@ -9,7 +9,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LonDev")]
 [assembly: AssemblyProduct("VKKeksikLib")]
-[assembly: AssemblyCopyright(copyright: "©  2020")]
+[assembly: AssemblyCopyright("LondonistDevelopment ©  2021")]
 [assembly: AssemblyTrademark("Londonist Development Software")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage(cultureName: "ru")]
@@ -24,5 +24,5 @@ using System.Resources;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.13.2.1")]
-[assembly: AssemblyFileVersion("5.13.2.1")]
+[assembly: AssemblyVersion("6.13.2.1")]
+[assembly: AssemblyFileVersion("6.13.2.1")]

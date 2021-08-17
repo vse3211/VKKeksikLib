@@ -124,6 +124,15 @@
         /// </summary>
         [JsonProperty("reward", NullValueHandling = NullValueHandling.Ignore)]
         public Reward Reward { get; set; }
+
+        /// <summary>
+        /// Данный параметр содержит целое положительное число, которое присваивается донату, при переходе пользователя по ссылке при донате.
+        /// Для использования данного параметра, добавьте к ссылке хеш вида #op_123456789, где вместо 123456789 можно указать любое целое положительное число в интервале от 1 до 4294967295.
+        /// Пример ссылки на приложение - https://vk.com/app6887721_-179267503#op_123456789.
+        /// Больше информации на https://keksik.io/api#donates/get
+        /// </summary>
+        [JsonProperty("op", NullValueHandling = NullValueHandling.Ignore)]
+        public int Op { get; set; }
     }
 
     /// <summary>
