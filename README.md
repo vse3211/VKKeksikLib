@@ -1,4 +1,4 @@
-# VKPonchikLib v3.13.2.1
+# VKKeksikLib v3.13.2.1
 Библиотека для использования API донат - сервиса "Пончик" ВКонтакте
 Используемое API: https://vkdonuts.ru/api
 ```Cистема версий: Текущая версия библиотеки (Если она изменилась - вам придется обновить свой проект!). Количество функций API. Количество дополнительных функций. Количество конвертеров```
@@ -10,15 +10,15 @@
 Установите Nuget пакет в ваш проект:
 **Package Manager**
 ``` powershell
-PM> Install-Package VKPonchikLib
+PM> Install-Package VKKeksikLib
 ```
 **.NET CLI**
 ``` bash
-> dotnet add package VKPonchikLib
+> dotnet add package VKKeksikLib
 ```
 **Visual Studio Nuget Manager**
 ```
-Проект -> Свойства -> Управление пакетами Nuget -> Обзор -> Поиск -> VKPonchikLib -> Установить
+Проект -> Свойства -> Управление пакетами Nuget -> Обзор -> Поиск -> VKKeksikLib -> Установить
 ```
 
 ### Поддержать разработку проекта
@@ -31,7 +31,7 @@ PM> Install-Package VKPonchikLib
 #### Использование
 **Создайте экзеспляр класса PonchikClient для дальнейшего использования API**
 ```
-VKPonchikLib.PonchikClient Client = new VKPonchikLib.PonchikClient(SecretKey, ConfirmKey);
+VKKeksikLib.PonchikClient Client = new VKKeksikLib.PonchikClient(SecretKey, ConfirmKey);
 ```
 
 ## Example
@@ -42,7 +42,7 @@ VKPonchikLib.PonchikClient Client = new VKPonchikLib.PonchikClient(SecretKey, Co
 public partial class CallBack : System.Web.UI.Page
 {
     /* Создаем экземпляр класса PonchikClient и передаем ему секретный ключ и код подтверждения */
-    VKPonchikLib.PonchikClient.CallBack Client = new VKPonchikLib.PonchikClient.CallBack(GroupID, APIToken, SecretKey, ConfirmKey);
+    VKKeksikLib.PonchikClient.CallBack Client = new VKKeksikLib.PonchikClient.CallBack(GroupID, APIToken, SecretKey, ConfirmKey);
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -96,49 +96,49 @@ public partial class CallBack : System.Web.UI.Page
 **Использование Функций PonchikClient.Donate**
 ```c#
 /* Создаем новый экземпляр класса Donate */
-var pl = new VKPonchikLib.PonchikClient.Donate(GroupID, SecretKey, ConfirmKey);
+var pl = new VKKeksikLib.PonchikClient.Donate(GroupID, SecretKey, ConfirmKey);
 /* Получение списка донатов */
-string GetResult = VKPonchikLib.Converters.Serialize.ToJson(pl.Get());
+string GetResult = VKKeksikLib.Converters.Serialize.ToJson(pl.Get());
 /* Изменить статус доната */
-string ChangeStatusResult = VKPonchikLib.Converters.Serialize.ToJson(pl.ChangeStatus(0123456, "Status"));
+string ChangeStatusResult = VKKeksikLib.Converters.Serialize.ToJson(pl.ChangeStatus(0123456, "Status"));
 /* Добавить/изменить ответ сообщества на донат */
-string AnswerResult = VKPonchikLib.Converters.Serialize.ToJson(pl.Answer(0123456, "Answer"));
+string AnswerResult = VKKeksikLib.Converters.Serialize.ToJson(pl.Answer(0123456, "Answer"));
 /* Изменить выдачи вознаграждения */
-string ChangeRewardStatusResult = VKPonchikLib.Converters.Serialize.ToJson(pl.ChangeRewardStatus(0123456, "Status"));
+string ChangeRewardStatusResult = VKKeksikLib.Converters.Serialize.ToJson(pl.ChangeRewardStatus(0123456, "Status"));
 ```
 
 **Использование Функций PonchikClient.Campaign**
 ```c#
 /* Создаем новый экземпляр класса Donate */
-var pl = new VKPonchikLib.PonchikClient.Campaign(GroupID, SecretKey, ConfirmKey);
+var pl = new VKKeksikLib.PonchikClient.Campaign(GroupID, SecretKey, ConfirmKey);
 /* Получить список краудфандинговых кампаний (последние 20 кампаний) */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.Get(new int[3] { 01234560, 01234561, 01234563 }));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.Get(new int[3] { 01234560, 01234561, 01234563 }));
 /* Получить активную краудфандинговую кампанию */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.GetActive());
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.GetActive());
 /* Получить список вознаграждений краудфандинговой кампании */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.GetRewards(0123456));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.GetRewards(0123456));
 /* Обновить информацию о краудфандинговой кампании */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.Change(0123456, "Title", "Status", 0, 11000, 0, 0));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.Change(0123456, "Title", "Status", 0, 11000, 0, 0));
 /* Обновить информацию о вознаграждении краудфандинговой кампании */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.ChangeReward(0123456, "Title", "Desc", 500, 0, "hidden"));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.ChangeReward(0123456, "Title", "Desc", 500, 0, "hidden"));
 ```
 
 **Использование Функций PonchikClient.Payment**
 ```c#
 /* Создаем новый экземпляр класса Payment */
-var pl = new VKPonchikLib.PonchikClient.Payment(Base.CDB.GroupID, Base.CDB.SecretKey, Base.CDB.ConfirmKey);
+var pl = new VKKeksikLib.PonchikClient.Payment(Base.CDB.GroupID, Base.CDB.SecretKey, Base.CDB.ConfirmKey);
 /* Получить список заявок на выплату (последние 20 заявок). */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.Get(new int[3] { 01234560, 01234561, 01234563 }));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.Get(new int[3] { 01234560, 01234561, 01234563 }));
 /* Создать заявку на выплату */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.Create(System, Purse, Ammount));
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.Create(System, Purse, Ammount));
 ```
 
 **Использование Функций PonchikClient.Balance**
 ```c#
 /* Создаем новый экземпляр класса Balance */
-var pl = new VKPonchikLib.PonchikClient.Balance(Base.CDB.GroupID, Base.CDB.SecretKey, Base.CDB.ConfirmKey);
+var pl = new VKKeksikLib.PonchikClient.Balance(Base.CDB.GroupID, Base.CDB.SecretKey, Base.CDB.ConfirmKey);
 /* Получить баланс группы в приложении */
-Base.CDB.result = VKPonchikLib.Converters.Serialize.ToJson(pl.Get());
+Base.CDB.result = VKKeksikLib.Converters.Serialize.ToJson(pl.Get());
 ```
 
 **Использование Функции SendPostJSON**
