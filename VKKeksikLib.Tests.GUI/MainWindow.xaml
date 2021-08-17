@@ -1,0 +1,19 @@
+﻿<Window x:Class="VKKeksikLib.Tests.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VKKeksikLib.Tests.GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="196" Width="800">
+    <Grid>
+        <TextBox x:Name="GUID" HorizontalAlignment="Left" Margin="10,10,0,0" Text="GUID" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Token" HorizontalAlignment="Left" Margin="10,33,0,0" Text="Token" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Secret" HorizontalAlignment="Left" Margin="10,56,0,0" Text="Secret" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Confirmation" HorizontalAlignment="Left" Margin="10,79,0,0" Text="Confirmation" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Проверить" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="120" Click="CheckInput"/>
+        <TextBox x:Name="Input" Margin="135,10,10,0" Text="INPUT JSON" TextWrapping="Wrap" VerticalAlignment="Top" Height="112"/>
+        <Label Content="Answer:" HorizontalAlignment="Left" Margin="10,0,0,10" Height="26" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="_Result" Margin="70,0,10,10" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net45;net461;netstandard2.0;net5.0</TargetFrameworks>
+    <AssemblyName>VKKeksikLib</AssemblyName>
+    <VersionPrefix>6.13.2.1</VersionPrefix>
+    <VersionSufix>
+    </VersionSufix>
+    <NeutralLanguage>ru-RU</NeutralLanguage>
+    <PackageId>VKKeksikLib</PackageId>
+    <Title>Реализация VK Donuts App API для .NET.</Title>
+    <Description>
+      Реализация VK Donuts App API для .NET.
+      Подробнее на сайте проекта
+    </Description>
+    <Authors>LonDev</Authors>
+    <PackageProjectUrl>https://github.com/vse3211/VKKeksikLib</PackageProjectUrl>
+    <PackageIcon>LonDev.PNG</PackageIcon>
+    <RepositoryUrl>https://github.com/vse3211/VKKeksikLib</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags> API;VK;Keksik;Кексик;Payments</PackageTags>
+    <PackageReleaseNotes>
+      * Документация: https://github.com/vse3211/VKKeksikLib/blob/master/README.md
+      * Связатся со мной: https://vk.com/londonist
+      * LonDev WebSite: https://londev.ru
+    </PackageReleaseNotes>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>VKKeksikLib</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;UWP</DefineConstants>
+    <DocumentationFile>..\Build\Debug\VKKeksikLib.xml</DocumentationFile>
+    <OutputPath>..\Build\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;UWP</DefineConstants>
+    <DocumentationFile>..\Build\Release\VKKeksikLib.xml</DocumentationFile>
+    <OutputPath>..\Build\Release\</OutputPath>
+  </PropertyGroup>
+  
+  
+  <ItemGroup>
+    <PackageReference Include="AsyncFixer" Version="1.3.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net461'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <PackageReference Include="NetFx.Extensions.DependencyInjection" Version="[2.2.0]" />
+    <PackageReference Include="NetFx.Extensions.Logging.Abstractions" Version="[2.2.0]" />
+
+    <!--Должен быть именно Package так как могут возникать конфликты-->
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\tools\LonDev.PNG" Pack="true" PackagePath="\" />
+    <None Include="..\LICENCE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
