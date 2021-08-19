@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,22 @@ namespace VKKeksikLib.Tests.GUI
         public MainWindow()
         {
             InitializeComponent();
+            if (File.Exists("GUID.save")) GUID.Text = File.ReadAllText("GUID.save");
+            if (File.Exists("Token.save")) Token.Text = File.ReadAllText("Token.save");
+            if (File.Exists("Secret.save")) Secret.Text = File.ReadAllText("Secret.save");
+            if (File.Exists("Confirmation.save")) Confirmation.Text = File.ReadAllText("Confirmation.save");
+            if (File.Exists("Input.save")) Input.Text = File.ReadAllText("Input.save");
         }
 
         private void CheckInput(object sender, RoutedEventArgs e)
         {
+            File.WriteAllText("GUID.save", GUID.Text);
+            File.WriteAllText("Token.save", Token.Text);
+            File.WriteAllText("Secret.save", Secret.Text);
+            File.WriteAllText("Confirmation.save", Confirmation.Text);
+            File.WriteAllText("Input.save", Input.Text);
+
+
             PonchikClient.CallBack client = new VKKeksikLib.PonchikClient.CallBack(Convert.ToInt32(GUID.Text), Token.Text, Secret.Text, Confirmation.Text);
             /* Объявляем функцию для эвента OnNewConfirmation */
             client.OnNewConfirmation += client_OnNewConfirmation;

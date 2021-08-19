@@ -1,4 +1,4 @@
-# VKKeksikLib v6.13.2.1
+# VKKeksikLib v7.13.2.1
 Библиотека для использования API донат - сервиса "Пончик" ВКонтакте
 Используемое API: https://keksik.io/api
 
@@ -38,6 +38,8 @@ VKKeksikLib.PonchikClient Client = new VKKeksikLib.PonchikClient(SecretKey, Conf
 
 ## Example
 **Использование CallBack API (Рекомендуется использовать в проектах веб-приложения или ASP.NET):**
+
+**В версии 7 был добавлен отдельный класс для обычных подтверждений запросов и изменен класс для первого подтверждения!**
 
 ```c#
 /* Эвент загрузки страницы ASP.NET */

@@ -110,39 +110,39 @@ namespace VKKeksikLib
                     {
                         try
                         {
-                            OnNewConfirmation?.Invoke("confirmation", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "ok", Code = _ConfirmKey }));
+                            OnNewConfirmation?.Invoke("confirmation", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Code = _ConfirmKey }));
                         }
                         catch (Exception ex)
                         {
-                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "error" }), $"Ошибка обработки confirmation: {ex.Message}");
+                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "error" }), $"Ошибка обработки confirmation: {ex.Message}");
                         }
                     }
                     else if (DA.Type == "new_donate")
                     {
                         try
                         {
-                            OnNewDonate?.Invoke("new_donate", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "ok" }), DA.Donate);
+                            OnNewDonate?.Invoke("new_donate", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "ok" }), DA.Donate);
                         }
                         catch (Exception ex)
                         {
-                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "error" }), $"Ошибка обработки new_donate: {ex.Message}");
+                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "error" }), $"Ошибка обработки new_donate: {ex.Message}");
                         }
                     }
                     else if (DA.Type == "payment_status")
                     {
                         try
                         {
-                            OnNewPaymentStatus?.Invoke("payment_status", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "ok" }), DA.Payment);
+                            OnNewPaymentStatus?.Invoke("payment_status", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "ok" }), DA.Payment);
                         }
                         catch (Exception ex)
                         {
-                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "error" }), $"Ошибка обработки payment_status: {ex.Message}");
+                            OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "error" }), $"Ошибка обработки payment_status: {ex.Message}");
                         }
                     }
                 }
                 else
                 {
-                    OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmationJSON { Status = "error" }), "Запрос не прошел проверку");
+                    OnError?.Invoke("error", VKKeksikLib.Converters.Serialize.ToJson(new ConfirmJSON { Status = "error" }), "Запрос не прошел проверку");
                 }
             }
 
@@ -611,15 +611,21 @@ namespace VKKeksikLib
     public class ConfirmationJSON
     {
         /// <summary>
-        /// Состояние обработки запроса
-        /// </summary>
-        [JsonProperty("status")]
-        public string Status { get; set; }
-        /// <summary>
         /// Код подтверждения (если нужно)
         /// </summary>
         [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code { get; set; }
+    }
+    /// <summary>
+    /// Массив для обычного подтверждения запроса
+    /// </summary>
+    public class ConfirmJSON
+    {
+        /// <summary>
+        /// Состояние обработки запроса
+        /// </summary>
+        [JsonProperty("status")]
+        public string Status { get; set; }
     }
     #endregion
 }
